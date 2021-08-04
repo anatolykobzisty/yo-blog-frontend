@@ -1,16 +1,15 @@
 import React from 'react';
-import Header from '../components/Header';
+import Layout from '../components/Layout';
 
 const HomePage = () => (
-  <>
-    <Header />
+  <Layout test="woow">
     <h1>Главная страница</h1>
     <p>
       Давно выяснено, что при оценке дизайна и композиции читаемый текст мешает сосредоточиться. Lorem Ipsum используют потому,
       что тот обеспечивает более или менее стандартное заполнение шаблона, а также реальное распределение букв и пробелов в
       абзацах, которое не получается при простой дубликации "Здесь ваш текст..
     </p>
-  </>
+  </Layout>
 );
 
 export default HomePage;
