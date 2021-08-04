@@ -1,7 +1,9 @@
 import React from 'react';
+import Header from '../components/Header';
 
 const HomePage = () => (
   <>
+    <Header />
     <h1>Главная страница</h1>
     <p>
       Давно выяснено, что при оценке дизайна и композиции читаемый текст мешает сосредоточиться. Lorem Ipsum используют потому,

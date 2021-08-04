@@ -1,7 +1,9 @@
 import React from 'react';
+import Header from '../components/Header';
 
 const PostOne = () => (
   <>
+    <Header />
     <h1>Статья № 1</h1>
     <p>
       Давно выяснено, что при оценке дизайна и композиции читаемый текст мешает сосредоточиться. Lorem Ipsum используют потому,
