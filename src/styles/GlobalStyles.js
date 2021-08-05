@@ -19,7 +19,7 @@ const GlobalStyles = createGlobalStyle`
     font-weight: 400;
   }
   @font-face {
-    font-family: Balsamiq;
+    font-family: 'Balsamiq Sans';
     src: url(${font});
   }
   a {

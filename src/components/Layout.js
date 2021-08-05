@@ -1,5 +1,6 @@
 import React from 'react';
 import styled, { ThemeProvider } from 'styled-components';
+import { Helmet } from 'react-helmet';
 import 'normalize.css';
 import GlobalStyles from '../styles/GlobalStyles';
 import Header from './Header';
@@ -15,6 +16,12 @@ const theme = {
 const Layout = ({ children }) => (
   <ThemeProvider theme={theme}>
     <StyledPage>
+      <Helmet>
+        <link
+          href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&amp;subset=cyrillic,cyrillic-ext"
+          rel="stylesheet"
+        />
+      </Helmet>
       <GlobalStyles />
       <Header />
       <Content>{children}</Content>
