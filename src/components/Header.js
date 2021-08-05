@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { SiHellofresh } from 'react-icons/si';
+import { RiZcoolFill } from 'react-icons/ri';
 import { Link } from 'gatsby';
 
 const Header = () => (
@@ -8,7 +8,7 @@ const Header = () => (
     <Wrapper>
       <Link to="/">
         <h1>
-          <SiHellofresh /> Fresh Blog
+          <RiZcoolFill /> Yo, Blog !
         </h1>
       </Link>
     </Wrapper>
@@ -38,8 +38,8 @@ const Wrapper = styled.div`
     text-decoration: none;
     svg {
       fill: ${props => props.theme.yellow};
-      width: 40px;
-      height: 40px;
+      width: 80px;
+      height: 100px;
     }
   }
 `;

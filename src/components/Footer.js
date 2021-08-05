@@ -10,7 +10,7 @@ const Footer = () => (
       </legend>
     </div>
     <div className="wrapperMain">
-      <Link to="/">Fresh Blog </Link>
+      <Link to="/">Yo Blog </Link>
       &copy; {new Date().getFullYear()}
     </div>
   </FooterStyles>
