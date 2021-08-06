@@ -1,19 +1,16 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import Layout from '../components/Layout';
+import BlogPosts from '../components/BlogPost';
 
 const HomePage = ({ data }) => {
   const { posts } = data;
 
-  console.log('posts >>', posts);
   return (
     <Layout test="woow">
-      <h1>Главная страница. ({posts.nodes.length} статьи)</h1>
-      <p>
-        Давно выяснено, что при оценке дизайна и композиции читаемый текст мешает сосредоточиться. Lorem Ipsum используют потому,
-        что тот обеспечивает более или менее стандартное заполнение шаблона, а также реальное распределение букв и пробелов в
-        абзацах, которое не получается при простой дубликации "Здесь ваш текст..
-      </p>
+      <h1>Главная страница</h1>
+      <p>Наша главная страница</p>
+      <BlogPosts posts={posts.nodes} />
     </Layout>
   );
 };
