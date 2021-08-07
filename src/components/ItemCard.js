@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'gatsby';
 import Img from 'gatsby-image';
 import ItemGridStyles from '../styles/ItemGridStyles';
+import { CATEGORY_LABELS_LIST } from '../constants';
 
 const ItemCard = props => {
   const { post } = props;
@@ -24,7 +25,7 @@ const ItemCard = props => {
         <div>
           {post.categories.map(category => (
             <Link key={category.id} to={`/categories/${category.title.toLowerCase()}`}>
-              <span className="categoryTag"># {category.title}</span>
+              <span className="categoryTag">#{CATEGORY_LABELS_LIST[category.title]}</span>
             </Link>
           ))}
         </div>
