@@ -1,11 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
+import ItemCard from './ItemCard';
 
 const BlogPosts = props => {
   const { posts } = props;
   return (
     <Container>
-      <RowGrid>{posts.map(post => post.title)}</RowGrid>
+      <RowGrid>
+        {posts.map(post => (
+          <ItemCard key={post.id} post={post} />
+        ))}
+      </RowGrid>
     </Container>
   );
 };
