@@ -1,11 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 import ItemCard from './ItemCard';
+import CategoryFilter from './CategoryFilter';
 
 const BlogPosts = props => {
   const { posts } = props;
   return (
     <Container>
+      <CategoryFilter />
       <RowGrid>
         {posts.map(post => (
           <ItemCard key={post.id} post={post} />
