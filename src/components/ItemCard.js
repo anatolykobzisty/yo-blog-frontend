@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby';
+import Img from 'gatsby-image';
 import ItemGridStyles from '../styles/ItemGridStyles';
 
 const ItemCard = props => {
@@ -8,6 +9,8 @@ const ItemCard = props => {
 
   return (
     <ItemGridStyles>
+      <Img fluid={post.image.asset.fluid} alt={post.title} />
+
       <div className="itemGridWrap">
         <div className="postTitle">
           <Link to={`/${post.slug.current}`}>
