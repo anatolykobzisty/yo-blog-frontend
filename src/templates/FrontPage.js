@@ -18,8 +18,8 @@ const FrontPage = ({ data }) => {
 export default FrontPage;
 
 export const query = graphql`
-  query {
-    posts: allSanityPost {
+  query($limit: Int = 4, $skip: Int = 0) {
+    posts: allSanityPost(limit: $limit, skip: $skip) {
       nodes {
         id
         title
