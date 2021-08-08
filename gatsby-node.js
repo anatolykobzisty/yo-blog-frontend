@@ -4,6 +4,7 @@ const path = require('path');
 // Шаблоны
 const postTemplate = path.resolve('./src/templates/SinglePost.js');
 const frontTemplate = path.resolve('./src/templates/FrontPage.js');
+const categoryTemplate = path.resolve('./src/templates/SingleCategory.js');
 
 // Создание главной страницы
 const createFrontPage = (createPage, posts) => {
@@ -82,5 +83,17 @@ exports.createPages = ({ graphql, actions }) => {
 
     // 2. Создаем главную страницу
     createFrontPage(createPage, posts);
+
+    // 3. Создаем страницы категорий
+    categories.nodes.forEach(category => {
+      createPage({
+        path: `/categories/${category.title.toLowerCase()}`,
+        component: categoryTemplate,
+        context: {
+          categoryTitle: category.title,
+          posts,
+        },
+      });
+    });
   });
 };
