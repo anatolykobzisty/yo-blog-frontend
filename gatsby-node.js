@@ -1,7 +1,20 @@
+const { create } = require('domain');
 const path = require('path');
 
 // Шаблоны
 const postTemplate = path.resolve('./src/templates/SinglePost.js');
+const frontTemplate = path.resolve('./src/templates/FrontPage.js');
+
+// Создание главной страницы
+const createFrontPage = (createPage, posts) => {
+  createPage({
+    path: '/',
+    component: frontTemplate,
+    context: {
+      test: 'Front Page!!',
+    },
+  });
+};
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
@@ -50,7 +63,7 @@ exports.createPages = ({ graphql, actions }) => {
     }
     const { posts, categories } = results.data;
 
-    // Создаем страницы для статей
+    // 1. Создаем страницы для статей
     posts.nodes.forEach((post, index) => {
       const previous = index === posts.nodes.length - 1 ? null : posts.nodes[index + 1];
       const next = index === 0 ? null : posts.nodes[index - 1];
@@ -66,5 +79,8 @@ exports.createPages = ({ graphql, actions }) => {
         },
       });
     });
+
+    // 2. Создаем главную страницу
+    createFrontPage(createPage, posts);
   });
 };

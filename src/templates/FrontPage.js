@@ -3,7 +3,7 @@ import { graphql } from 'gatsby';
 import Layout from '../components/Layout';
 import BlogPosts from '../components/BlogPost';
 
-const HomePage = ({ data }) => {
+const FrontPage = ({ data }) => {
   const { posts } = data;
 
   return (
@@ -15,7 +15,7 @@ const HomePage = ({ data }) => {
   );
 };
 
-export default HomePage;
+export default FrontPage;
 
 export const query = graphql`
   query {
