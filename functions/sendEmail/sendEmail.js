@@ -16,8 +16,18 @@ function pause() {
 }
 
 exports.handler = async (event, context) => {
+  // Делаем паузу - 2сек.
   await pause();
+
   const body = JSON.parse(event.body);
+
+  //  // Проверка "мусорного" поля input
+  if (body.garbage) {
+    return {
+      statusCode: 400,
+      body: JSON.stringify({ message: 'Давай до свидания!' }),
+    };
+  }
 
   const fieldsRequired = ['email'];
   // Email -обязательное поле

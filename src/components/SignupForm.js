@@ -10,6 +10,14 @@ const SignupForm = () => {
     <Container>
       <FormStyles onSubmit={submitForm}>
         <input disabled={isLoading} type="email" name="email" value={values.email} onChange={captureInput} />
+        <input
+          disabled={isLoading}
+          type="garbage"
+          name="garbage"
+          value={values.garbage}
+          className="garbage"
+          onChange={captureInput}
+        />
         <button disabled={isLoading} type="submit">
           {isLoading ? 'Отправляю запрос...' : 'Отправить'}
         </button>

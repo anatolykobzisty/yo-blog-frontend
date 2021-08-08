@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 const useForm = () => {
-  const [values, setValues] = useState({ email: '' });
+  const [values, setValues] = useState({ email: '', garbage: '' });
   const [isLoading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [message, setMessage] = useState(null);
@@ -25,7 +25,7 @@ const useForm = () => {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ email: values.email }),
+      body: JSON.stringify({ email: values.email, garbage: values.garbage }),
     });
 
     const responseText = JSON.parse(await res.text());
@@ -40,6 +40,7 @@ const useForm = () => {
       setValues({
         ...values,
         email: '',
+        garbage: '',
       });
       setMessage('Вы успешно подписались на нашу рассылку!');
     }
