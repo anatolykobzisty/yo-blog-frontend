@@ -12,8 +12,6 @@ const FrontPage = props => {
   return (
     <Layout>
       <Meta title="Home Page" />
-      <h1>Главная страница</h1>
-      <p>Наша главная страница</p>
       <BlogPosts posts={posts.nodes} />
       <Pagination pageContext={pageContext} />
     </Layout>
