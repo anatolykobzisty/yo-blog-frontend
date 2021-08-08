@@ -8,12 +8,21 @@ const categoryTemplate = path.resolve('./src/templates/SingleCategory.js');
 
 // Создание главной страницы
 const createFrontPage = (createPage, posts) => {
-  createPage({
-    path: '/',
-    component: frontTemplate,
-    context: {
-      test: 'Front Page!!',
-    },
+  const { nodes } = posts;
+  const postsPerPage = 4;
+  const numPages = Math.ceil(nodes.length / postsPerPage);
+
+  Array.from({ length: numPages }).forEach((_, i) => {
+    createPage({
+      path: i === 0 ? `/` : `/page/${i + 1}`,
+      component: frontTemplate,
+      context: {
+        limit: postsPerPage,
+        skip: i * postsPerPage,
+        numPages,
+        currentPage: i + 1,
+      },
+    });
   });
 };
 
