@@ -9,18 +9,38 @@ const transporter = nodemailer.createTransport({
   },
 });
 
+function pause() {
+  return new Promise((resolve, reject) => {
+    setTimeout(resolve, 2000);
+  });
+}
+
 exports.handler = async (event, context) => {
-  const info = await transporter.sendMail({
+  await pause();
+  const body = JSON.parse(event.body);
+
+  const fieldsRequired = ['email'];
+  // Email -обязательное поле
+  for (const field of fieldsRequired) {
+    if (!body[field]) {
+      return {
+        statusCode: 400,
+        body: JSON.stringify({
+          message: `Введите ${field}!`,
+        }),
+      };
+    }
+  }
+
+  await transporter.sendMail({
     from: 'Yo Blog <signup@yoblog.ru>',
-    to: `info@myemail.com`,
+    to: `<${body.email}>, info@myemail.com`,
     subject: 'Рассылка YoBlog',
     html: `<div><p>Спасибо, что подписались на нашу рассылку!</p><p>Команда YoBlog</p></div>`,
   });
 
-  console.log(info);
-
   return {
     statusCode: 200,
-    body: JSON.stringify({ message: 'Успешно отправлен!' }),
+    body: JSON.stringify({ message: 'Transaction successful!' }),
   };
 };

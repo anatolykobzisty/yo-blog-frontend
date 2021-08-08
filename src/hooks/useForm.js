@@ -30,8 +30,6 @@ const useForm = () => {
 
     const responseText = JSON.parse(await res.text());
 
-    console.log(responseText);
-
     // 2. Проверяем ответ от сервера
     if (res.status >= 400 && res.status < 600) {
       setLoading(false);
