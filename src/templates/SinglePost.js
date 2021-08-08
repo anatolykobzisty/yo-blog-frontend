@@ -1,5 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
+import { Helmet } from 'react-helmet';
 import Img from 'gatsby-image';
 import Layout from '../components/Layout';
 import ItemCard from '../components/ItemCard';
@@ -13,6 +14,9 @@ const SinlePost = props => {
 
   return (
     <Layout>
+      <Helmet>
+        <title>{post.title}</title>
+      </Helmet>
       <SinglePostStyles>
         <h1>{post.title}</h1>
         <div className="singlePostMeta">
