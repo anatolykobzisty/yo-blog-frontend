@@ -2,8 +2,10 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import Layout from '../components/Layout';
 import BlogPosts from '../components/BlogPost';
+import Pagination from '../components/Pagination';
 
-const FrontPage = ({ data }) => {
+const FrontPage = props => {
+  const { data, pageContext } = props;
   const { posts } = data;
 
   return (
@@ -11,6 +13,7 @@ const FrontPage = ({ data }) => {
       <h1>Главная страница</h1>
       <p>Наша главная страница</p>
       <BlogPosts posts={posts.nodes} />
+      <Pagination pageContext={pageContext} />
     </Layout>
   );
 };
